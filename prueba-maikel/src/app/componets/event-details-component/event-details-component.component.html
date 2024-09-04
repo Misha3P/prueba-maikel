@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{ event!.Title }}</h5>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- Aquí va el contenido del modal que puede tener mucho texto -->
+    <div class="m-4" *ngIf="event">
+      <h2 class="mb-4">{{ event!.Title }}</h2>
+      <p>{{ event!.Description }}</p>
+      <p><strong>Ubicación:</strong> {{ event!.Location }}</p>
+      <p><strong>Fechas:</strong> {{ event!.StartDate }} - {{ event!.EndDate }}</p>
+  
+      <h3 class="mt-4">Actividades</h3>
+      <ul class="list-group mb-4">
+        <li *ngFor="let activity of activities" class="list-group-item">
+          <h5>{{ activity.Title }}</h5>
+          <p>{{ activity.Description }}</p>
+          <p><strong>Fecha:</strong> {{ activity.Date }} <strong>Hora:</strong> {{ activity.StartTime }} - {{ activity.EndTime }}</p>
+        </li>
+      </ul>
+  
+      <h3 class="mt-4">Usuarios Registrados</h3>
+      <ul class="list-group">
+        <li *ngFor="let user of users" class="list-group-item">
+          <p><strong>Nombre:</strong> {{ user.Username }}</p>
+          <p><strong>Email:</strong> {{ user.Email }}</p>
+        </li>
+      </ul>
+  
+      <!-- Solo visible para el organizador -->
+      <div class="mt-4 mb-4">
+        <button class="btn btn-danger mx-1" (click)="deleteEvent()">Eliminar Evento</button>
+        <button class="btn btn-primary mx-1" (click)="updateEvent()">Actualizar Evento</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Close click')">Cerrar</button>
+  </div>
+  

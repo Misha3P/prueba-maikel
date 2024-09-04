@@ -1,0 +1,19 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Lista de Eventos</h2>
+    <div class="mb-3">
+        <button class="btn btn-primary" (click)="openEventFormModal()">Crear Nuevo Evento</button>
+    </div>
+    <div class="list-group">
+        <a *ngFor="let event of events" class="list-group-item list-group-item-action"
+            (click)="openEventDetailsModal(event.EventId)">
+            <div>
+                <h5 class="mb-1">{{ event.Title }}</h5>
+                <p class="mb-1">{{ event.Description }}</p>
+                <small>Fecha: {{ event.StartDate }} - {{ event.EndDate }}</small>
+            </div>
+            <button class="btn btn-warning btn-sm float-right mt-2"
+                (click)="openEventFormModal(event.EventId); $event.stopPropagation()">Editar</button>
+
+        </a>
+    </div>
+</div>
