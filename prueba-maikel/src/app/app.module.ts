@@ -3,24 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventListComponent } from './componets/event-list-component/event-list-component.component';
-import { EventDetailsComponent } from './componets/event-details-component/event-details-component.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { EventFormComponent } from './componets/event-form/event-form.component';
 import { FormsModule } from '@angular/forms';
+import { UserListComponent } from './componets/user-list/user-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserDetailsComponent } from './componets/user-details/user-details.component';
+import { UserFormComponent } from './componets/user-form/user-form.component';
+import { PostListComponent } from './componets/post-list/post-list.component';
+import { PostDetailsComponent } from './componets/post-details/post-details.component';
+import { PostFormComponent } from './componets/post-form/post-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventListComponent,
-    EventDetailsComponent,
-    EventFormComponent,
+    UserListComponent,
+    UserDetailsComponent,
+    UserFormComponent,
+    PostListComponent,
+    PostDetailsComponent,
+    PostFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

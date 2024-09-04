@@ -1,37 +1,42 @@
-// Evento
-export interface Evento {
-    EventId: string; // UUID o ID único para el evento
-    Title: string;   // Título del evento
-    Description: string; // Descripción del evento
-    StartDate: Date | string; // Fecha de inicio del evento
-    EndDate: Date | string;   // Fecha de fin del evento
-    Location: string; // Ubicación del evento
-    OrganizerId: string; // ID del organizador (UserId)
-}
-
-// Usuario
+// export interface para la tabla User
 export interface User {
-    UserId: string;   // ID único del usuario
-    Username: string; // Nombre de usuario
-    Email: string;    // Correo electrónico
+    userId: number;
+    username: string;
+    email: string;
+    passwordHash: string;
 }
 
-// Registro en Evento
-export interface Registration {
-    RegistrationId: string; // ID único del registro
-    EventId: string; // ID del evento (EventId)
-    UserId: string;  // ID del usuario que se registra (UserId)
-    RegistrationDate: Date; // Fecha del registro
-    Status: 'pendiente' | 'confirmado' | 'cancelado'; // Estado del registro
+// export interface para la tabla Post
+export interface Post {
+    postId: number;
+    title: string;
+    content: string;
+    datePublished: Date;
+    userId: number; // Foreign Key a User
 }
 
-// Actividad en Evento
-export interface Activity {
-    ActivityId: string; // ID único de la actividad
-    EventId: string;    // ID del evento al que pertenece (EventId)
-    Title: string;      // Título de la actividad
-    Description: string; // Descripción de la actividad
-    Date: Date;         // Fecha de la actividad
-    StartTime: string;  // Hora de inicio de la actividad (formato HH:MM)
-    EndTime: string;    // Hora de fin de la actividad (formato HH:MM)
+// export interface para la tabla Comment
+export interface Comment {
+    commentId: number;
+    text: string;
+    datePosted: Date;
+    userId: number; // Foreign Key a User
+    postId: number; // Foreign Key a Post
+}
+
+// export interface para la tabla Follower
+export interface Follower {
+    followerId: number;
+    userId: number; // Foreign Key a User (follower)
+    followedUserId: number; // Foreign Key a User (followed user)
+}
+
+// export interface para la tabla Notification
+export interface Notification {
+    notificationId: number;
+    text: string;
+    dateSent: Date;
+    userId: number; // Foreign Key a User
+    relatedPostId?: number; // Foreign Key opcional a Post
+    relatedCommentId?: number; // Foreign Key opcional a Comment
 }

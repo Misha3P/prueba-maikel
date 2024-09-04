@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EventListComponent } from './componets/event-list-component/event-list-component.component';
-import { EventDetailsComponent } from './componets/event-details-component/event-details-component.component';
+import { UserListComponent } from './componets/user-list/user-list.component';
+import { PostListComponent } from './componets/post-list/post-list.component';
 
 const routes: Routes = [
-  { path: 'events', component: EventListComponent },
-  { path: 'events/:id', component: EventDetailsComponent },
-  { path: '', redirectTo: '/events', pathMatch: 'full' },
-  { path: '**', redirectTo: '/events' } // Manejo de rutas no encontradas
+  { path: 'posts', component: PostListComponent },
+  { path: 'users', component: UserListComponent },
+  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  { path: '**', redirectTo: '/users' } // Manejo de rutas no encontradas
 ];
 
 @NgModule({

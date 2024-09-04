@@ -1,0 +1,18 @@
+<!-- src/app/components/post-form/post-form.component.html -->
+<form (ngSubmit)="savePost()" class="p-4 border rounded bg-light">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input type="text" id="title" class="form-control" [(ngModel)]="post.title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label for="content">Contenido</label>
+      <textarea id="content" class="form-control" [(ngModel)]="post.content" name="content" rows="4" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="datePublished">Fecha de Publicación</label>
+      <input type="datetime-local" id="datePublished" class="form-control" [(ngModel)]="post.datePublished" name="datePublished" required>
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Guardar</button>
+    <button type="button" class="btn btn-secondary mt-3" (click)="activeModal.dismiss('cancel')">Cancelar</button>
+  </form>
+  

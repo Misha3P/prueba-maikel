@@ -1,0 +1,20 @@
+<!-- user-list.component.html -->
+<div class="container mt-4">
+    <h2 class="mb-4">Lista de Usuarios</h2>
+    <div class="mb-3">
+        <button class="btn btn-primary" (click)="openUserFormModal()">Crear Nuevo Usuario</button>
+    </div>
+    <div class="list-group">
+        <a *ngFor="let user of users" class="list-group-item list-group-item-action"
+            (click)="openUserDetailsModal(user.userId)">
+            <div>
+                <h5 class="mb-1">
+                    <strong>Usuario:</strong> {{ user.username }}
+                </h5>
+                <p class="mb-1">
+                    <strong>Email:</strong> {{ user.email }}
+                </p>
+            </div>
+        </a>
+    </div>
+</div>
